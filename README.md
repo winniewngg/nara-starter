@@ -1,62 +1,61 @@
-# Nara - A Bright Start to Your Day🦌
+# CIS 3500: Nara Extension Starter
 
-## Introduction
+## Overview
+This assignment involves enhancing a Chrome extension developed by one of the Top 3 winners of the MCIT hackathon. The project provides hands-on experience in web development, API integration, and collaborative coding.
 
-Nara is a Chrome extension designed to provide users with a refreshing and joyful start to their day. In a world where productivity tools often add to the stress, Nara focuses on mental relief and simple, feel-good activities. It aims to combat the habit of "bed rotting" and offers a gentle, uplifting experience every time you open a new tab. 🌿
+**Original project:** [Nara](https://github.com/luyiZhang818/Nara-Chrome-Extension)
 
-## Why Nara? 🤔
+## Project Description
+Nara is a Chrome extension that helps users manage their tasks and reminders efficiently. Your task is to enhance this extension by implementing new features.
 
-- **Mental Relief**: Around 20% of adults struggle with mental health issues, often exacerbated by the pressure to be constantly productive. Many doom scroll in bed because they feel overwhelmed with starting the day. Nara offers a break from this cycle. 🧘‍♀️
-- **Spark Joy**: Instead of overwhelming to-do lists, Nara encourages small, joyful tasks that make you feel good. 🌸
-- **Simple and Beautiful**: With a clean and aesthetically pleasing interface, Nara makes your daily routine a little brighter. 🎋
+## Enhancement Options
+Choose one of the following enhancements to implement:
 
-## Core Features ✨
+1. **History Feature**: Maintain a log of all tasks and reminders created by the user.
+2. **Alternative API Integration**: Integrate with another task management API provider.
+3. **Progress Indicator**: Add a progress bar to indicate the status of API calls.
+4. **Custom Feature**: Propose a unique feature (requires instructor/TA approval).
 
-- **Beautiful Landing Page**: Featuring six focus categories such as self-care, home, pets, and more. 🏞
-- **5-Task To-Do List**: Tailored to the chosen category, with simple and achievable tasks like:
-  - **Myself**: "Drink water," "Take a walk." 🚶‍♂️
-  - **Home**: "Clean a room," "Sort laundry." 🧺
-- **User Reward System**: Celebrate your small wins with rewards upon task completion. 🎉
+## Getting Started
 
-## Technologies Used 💻
+### Step 1: Team Organization
+- Assign a team member as the **Product Manager (PM)** for Nara.
+- Ensure this PM is different from the one assigned to the Lunch Lotto project.
 
-- **HTML, CSS, JavaScript**: For building a responsive and interactive user interface. 🛠️
-- **Chrome Extension API**: To seamlessly integrate Nara into your browser experience. 🌐
+### Step 2: Repository Setup
+The PM should fork the repository:
+1. Navigate to the `nara-extension-starter` repository on GitHub.
+2. Click the **Fork** button to create a copy under their account.
 
-## How It Works 🔄
+### Step 3: Cloning the Repository
+Once the PM has forked the repository, team members should clone it locally:
+```sh
+git clone https://github.com/<PM-username>/nara-extension-starter.git
+```
 
-1. **Select a Category**: Upon opening a new tab, you are prompted to choose a focus category. 📂
-2. **Generate Tasks**: Nara creates a list of five simple to-do items based on your selection. 📝
-3. **Interactive Tasks**: Tasks are displayed dynamically, allowing you to delete, toggle, or reorder them as needed. ⌨️
-4. **Earn Rewards**: Complete tasks and receive rewards, making your day a little more satisfying. 💡
+### Step 4: Development Workflow
+1. Open the project in a text editor (e.g., **Visual Studio Code** recommended).
+2. Make changes to the codebase.
+3. Use the following commands to commit and push your changes:
 
-Every day is a new day to feel better. 
+```sh
+git add .
+git commit -m "feat: [feature name] added"
+git push
+```
 
-## Future Plans 🚀
+4. As team members contribute, collaborate using **Pull Requests (PRs)** on GitHub.
+5. Regularly sync your local repository with the latest changes:
 
-- **Dynamic Categories**: Expand with categories that adapt based on user activity and preferences. 🔄
-- **User Accounts**: Introduce user accounts and authentication for a personalized experience. 🔐
-- **AI Integration**: Incorporate AI-based suggestions and calendar integration to enhance usability. 🤖
+```sh
+git pull
+```
 
-## Conclusion 🌟
+6. Resolve merge conflicts as needed and ensure smooth integration.
 
-Nara is more than just a Chrome extension; it's a daily companion that helps you start your day with positivity and ease. By focusing on simple, joyful tasks, Nara ensures that your day begins on a bright note, free from the pressures of traditional task management. 
+## Submission
+- Submit the final version of your project as per course guidelines.
+- Include a brief write-up of your implemented features and any challenges faced.
 
-Feel free to explore Nara and let it bring a little more joy to your daily routine! 
-
-------
-
-
-
-Created by Team O(1) with LOVE during the January 2025 Hackathon 💝
-
-*Team Members: Joe Zhou, Luyi Zhang, Nancy Liang, Nicole Li* 
-
-
-
-
-
-
-
-
-
+---
+Happy coding, and good luck with Nara! 🦌
