@@ -1,0 +1,490 @@
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100vw;
+    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #000;
+    /* Fallback color during transitions */
+}
+
+.background-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    will-change: opacity;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+/* Welcome message */
+@keyframes welcomeFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.95;
+    }
+}
+
+#welcome-message {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 5.3rem;
+    font-weight: 400;
+    text-align: center;
+    font-family: 'Slackside One', sans-serif;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    text-transform: lowercase;
+    white-space: nowrap;
+    /* text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    opacity: 0.95;
+    animation: welcomeFadeIn 1s ease-out forwards;
+}
+
+/* Categories container */
+#categories-container {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 400px;
+}
+
+.category-button {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #4158D0;
+    font-weight: 500;
+}
+
+.category-button:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Tasks container */
+#tasks-container {
+    position: fixed;
+    top: 120px;
+    left: 220px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 24px 24px 35px 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    min-width: 400px;
+    /* Set a minimum width */
+    max-width: 400px;
+    /* Set a maximum width to prevent expansion */
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#tasks-header {
+    margin-bottom: 1.5rem;
+}
+
+.task-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.task-subtitle {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin: 0.3rem 0 1rem;
+}
+
+.draggable {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.draggable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.task-text {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    text-transform: lowercase;
+    color: #333;
+    padding: 4px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    white-space: pre-wrap;
+    /* Allow text to wrap */
+    overflow-wrap: break-word;
+    /* Break long words to prevent overflow */
+    word-wrap: break-word;
+    /* Fallback for older browsers */
+    max-width: 100%;
+    /* Ensure the text does not exceed the container's width */
+}
+
+.task-text[contenteditable="true"]:empty::before {
+    content: attr(placeholder);
+    color: #9CA3AF;
+    font-style: italic;
+}
+
+.task-text:focus {
+    outline: none;
+    background: transparent;
+    border-radius: 4px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    appearance: none;
+    border: 2px solid #9CA3AF;
+    position: relative;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #0c9623;
+    border-color: #0c9623;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Sortable classes */
+.sortable-ghost {
+    opacity: 0.4;
+}
+
+.sortable-chosen {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide elements */
+.hidden {
+    display: none !important;
+}
+
+/* Delete */
+.delete-task {
+    background: none;
+    border: none;
+    color: #9CA3AF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    position: relative;
+}
+
+.delete-task::before,
+.delete-task::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 16px;
+    background-color: currentColor;
+    top: 50%;
+    left: 50%;
+    transition: all 0.3s ease;
+}
+
+.delete-task::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.delete-task::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.delete-task:hover {
+    color: #6B7280;
+    filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1));
+}
+
+/* Completed task styling */
+input[type="checkbox"]:checked+.task-text {
+    text-decoration: line-through;
+    color: #9CA3AF;
+}
+
+/* Drag handle */
+.drag-handle {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    cursor: grab;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    margin-left: auto;
+    padding: 0 4px;
+}
+
+.drag-handle .line {
+    width: 100%;
+    height: 2px;
+    background-color: #9CA3AF;
+    border-radius: 1px;
+    transition: background-color 0.2s ease;
+}
+
+.drag-handle:hover .line {
+    background-color: #6B7280;
+}
+
+/* Reset Button */
+#reset-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.reset-icon {
+    font-size: 24px;
+    color: #6B7280;
+    transform: rotate(45deg);
+}
+
+/* Reset Modal */
+#reset-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+#reset-modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.8);
+    /* More translucent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    max-width: 300px;
+    text-align: center;
+}
+
+.modal-content p {
+    margin: 0 0 20px;
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.modal-buttons button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Yes Button - Green (matches checkbox color) */
+#reset-yes {
+    background-color: #0c9623;
+    /* Green color */
+    color: white;
+}
+
+#reset-yes:hover {
+    background-color: #0a7a1d;
+    /* Slightly darker green on hover */
+}
+
+/* No Button - Gray */
+#reset-no {
+    background-color: #6B7280;
+    color: white;
+}
+
+#reset-no:hover {
+    background-color: #4B5563;
+    /* Slightly darker gray on hover */
+}
+
+/* Hover Circle Styles */
+.deer-circle {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#deer1-circle {
+    width: 450px;
+    height: 450px;
+}
+
+#deer2-circle {
+    width: 400px;
+    height: 400px;
+}
+
+#deer3-circle {
+    width: 220px;
+    height: 220px;
+}
+
+#deer4-circle {
+    width: 250px;
+    height: 250px;
+}
+
+#deer5-circle {
+    width: 340px;
+    height: 340px;
+}
+
+#deer6-circle {
+    width: 500px;
+    height: 500px;
+}
+
+.deer-circle.active {
+    opacity: 1;
+}
+
+#categories-container {
+    display: none !important;
+    /* Hide the categories container by default */
+}
+
+.thank-you-message {
+    position: fixed;
+    top: 80%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 5.3rem;
+    font-weight: 400;
+    line-height: 4rem;
+    text-align: left;
+    font-family: 'Slackside One', sans-serif;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    text-transform: lowercase;
+    max-width: 40%;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    opacity: 0.95;
+    animation: welcomeFadeIn 1s ease-out forwards;
+    }
