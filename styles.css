@@ -138,8 +138,8 @@ body {
 
 #inspirational-quote {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    top: 20px;   
+    right: 20px; 
     max-width: 300px;
     padding: 10px 15px;
     background: rgba(255, 255, 255, 0.8);
