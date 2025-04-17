@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resetYesButton = document.getElementById("reset-yes");
   const resetNoButton = document.getElementById("reset-no");
 
+  // creating inspirational quotes 
   const inspirationalQuotes = [
     "Believe you can and you're halfway there.",
     "Every day is a second chance.",
@@ -22,16 +23,26 @@ document.addEventListener("DOMContentLoaded", () => {
     "Your potential is endless.",
     "Dream big, start small, act now.",
     "Believe in yourself and all that you are.",
-    "You can do it, I believe in you!"
+    "You can do it, I believe in you!",
+    "Start where you are. Use what you have. Do what you can.",
+    "The secret to getting ahead is getting started.",
+    "Do something today that your future self will thank you for.",
+    "Dream bigger than your fears and work harder than your excuses.",
+    "Success doesn’t come from what you do occasionally, but what you do consistently.",
+    "Hard work beats talent when talent doesn’t work hard.",
+    "If it doesn’t challenge you, it won’t change you.",
+    "Your mind is a powerful thing; fill it with positive thoughts.",
+    "Let your dreams be bigger than your fears and your actions louder than your words.",
+    "Every accomplishment starts with the decision to try."
   ];
   
-  // 2. Create a function to pick and display one quote
+  // function to display the quote
   function displayRandomQuote() {
     const quote = inspirationalQuotes[
       Math.floor(Math.random() * inspirationalQuotes.length)
     ];
-  
-    // Create the container (or select an existing one)
+
+    // set container
     let container = document.getElementById("inspirational-quote");
     if (!container) {
       container = document.createElement("div");
@@ -39,11 +50,40 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.appendChild(container);
     }
   
-    // Insert the text
+    // insert the inspirational quote text
     container.textContent = quote;
   }
 
   displayRandomQuote();
+
+  // creating encouragement messages for when user checks off task
+  const encouragementMessages = [
+    "Great job!",
+    "You’re making progress!",
+    "Keep going—you’ve got this!",
+    "That was one more step forward!",
+    "Nice work—one task down!",
+    "You’re on a roll!",
+    "Fantastic effort!",
+    "Way to crush it!",
+    "Another win for today!",
+    "Your future self thanks you!"
+  ];
+  
+  // function to display the encouragement messages
+  function showEncouragement() {
+    const msg = encouragementMessages[
+      Math.floor(Math.random() * encouragementMessages.length)
+    ];
+    const bubble = document.createElement("div");
+    bubble.className = "speech-bubble";
+    bubble.textContent = msg;
+    document.body.appendChild(bubble);
+    setTimeout(() => {
+      bubble.classList.add("fade-out");
+      bubble.addEventListener("transitionend", () => bubble.remove());
+    }, 1200);
+  }
 
   // for controlling when hovers are active
   let hoverListeners = [];
@@ -705,6 +745,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tasks[originalIndex].completed = checkbox.checked;
 
         if (tasks[originalIndex].completed) {
+          showEncouragement();
           const deleteButton = taskItem.querySelector(".delete-task");
           if (deleteButton) deleteButton.remove();
         }
