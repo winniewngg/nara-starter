@@ -58,16 +58,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // creating encouragement messages for when user checks off task
   const encouragementMessages = [
-    "Great job!",
-    "You’re making progress!",
-    "Keep going—you’ve got this!",
-    "That was one more step forward!",
-    "Nice work—one task down!",
-    "You’re on a roll!",
-    "Fantastic effort!",
-    "Way to crush it!",
-    "Another win for today!",
-    "Your future self thanks you!"
+    "Great job! \\(^_^)\\",
+    "You're making progress! (^_^)",
+    "Keep going—you've got this! (>_<)b",
+    "That was one more step forward! (^_-)",
+    "Nice work—one task down! (:D)",
+    "You're on a roll! <(^_^)³>",
+    "Fantastic effort! (*^_^*)",
+    "Way to crush it! (^o^)",
+    "Another win for today! (^-^)",
+    "Your future self thanks you! (^^)v",
+    "Look at you go! \\(^o^)/",
+    "Keep shining bright! (^_^)/",
+    "Task complete—feel unstoppable! (^_^)b",
+    "You're on fire today! (>_>)>",
+    "High five on that one! \\(^_^)/",
+    "You rock! (v^_^)v",
+    "Keep it up! :-)",
+    "Way to go! :)",
+    "Outstanding! :-D",
+    "Spectacular! (^.^)"
   ];
   
   // function to display the encouragement messages
