@@ -136,6 +136,20 @@ body {
     gap: 12px;
 }
 
+#inspirational-quote {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 300px;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    font-style: italic;
+    font-size: 0.9rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
 #tasks-header {
     margin-bottom: 1.5rem;
 }

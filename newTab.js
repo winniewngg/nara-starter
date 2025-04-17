@@ -11,6 +11,40 @@ document.addEventListener("DOMContentLoaded", () => {
   const resetYesButton = document.getElementById("reset-yes");
   const resetNoButton = document.getElementById("reset-no");
 
+  const inspirationalQuotes = [
+    "Believe you can and you're halfway there.",
+    "Every day is a second chance.",
+    "Small steps every day add up to big results.",
+    "Progress, not perfection.",
+    "You are capable of amazing things.",
+    "Success is the sum of small efforts repeated daily.",
+    "Keep pushing forward—your future self will thank you.",
+    "Your potential is endless.",
+    "Dream big, start small, act now.",
+    "Believe in yourself and all that you are.",
+    "You can do it, I believe in you!"
+  ];
+  
+  // 2. Create a function to pick and display one quote
+  function displayRandomQuote() {
+    const quote = inspirationalQuotes[
+      Math.floor(Math.random() * inspirationalQuotes.length)
+    ];
+  
+    // Create the container (or select an existing one)
+    let container = document.getElementById("inspirational-quote");
+    if (!container) {
+      container = document.createElement("div");
+      container.id = "inspirational-quote";
+      document.body.appendChild(container);
+    }
+  
+    // Insert the text
+    container.textContent = quote;
+  }
+
+  displayRandomQuote();
+
   // for controlling when hovers are active
   let hoverListeners = [];
 
